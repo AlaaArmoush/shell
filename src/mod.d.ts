@@ -64,6 +64,11 @@ declare module 'gi://Meta' {
     export default Meta;
 }
 
+declare module 'gi://Mtk' {
+    let Mtk: any;
+    export default Mtk;
+}
+
 declare module 'gi://Gtk' {
     let Gtk: any;
     export default Gtk;
@@ -107,7 +112,7 @@ declare module 'gi://GLib' {
         timeout_add(priority: number, ms: number, callback: () => boolean): number;
 
         get_user_config_dir(): string;
-        file_get_contents(filename: string): string;
+        file_get_contents(filename: string): [boolean, Uint8Array];
     }
     let gLib: GLib;
     export default gLib;

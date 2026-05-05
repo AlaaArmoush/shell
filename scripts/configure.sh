@@ -40,8 +40,6 @@ set_keybindings() {
     dconf write ${KEYS_MUTTER_WAYLAND_RESTORE} "@as []"
     # Hide window: disable <Super>h
     dconf write ${KEYS_GNOME_WM}/minimize "@as ['<Super>comma']"
-    # Open the application menu: disable <Super>m
-    dconf write ${KEYS_GNOME_SHELL}/open-application-menu "@as []"
     # Toggle message tray: disable <Super>m
     dconf write ${KEYS_GNOME_SHELL}/toggle-message-tray "@as ['<Super>v']"
     # Show the activities overview: disable <Super>s

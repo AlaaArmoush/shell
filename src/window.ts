@@ -266,13 +266,7 @@ export class ShellWindow {
     }
 
     is_client_decorated(): boolean {
-        // look I guess I'll hack something together in here if at all possible
-        // Because Meta.Window.is_client_decorated() was removed in Meta 15, using it breaks the extension in gnome 47 or higher
-        //return this.meta.window_type == Meta.WindowType.META_WINDOW_OVERRIDE_OTHER;
-        const xid = this.xid();
-        const extents = xid ? xprop.get_frame_extents(xid) : false;
-        if (!extents) return false;
-        return true;
+        return this.meta.decorated;
     }
 
     is_maximized(): boolean {
