@@ -83,8 +83,8 @@ set_keybindings() {
     dconf write ${KEYS_MEDIA}/screensaver "['<Super>Escape']"
     # Home folder
     dconf write ${KEYS_MEDIA}/home "['<Super>f']"
-    # Launch email client
-    dconf write ${KEYS_MEDIA}/email "['<Super>e']"
+    # Launch email client: leave <Super>e available for Pop Shell adjustment mode.
+    dconf write ${KEYS_MEDIA}/email "@as []"
     # Launch web browser
     dconf write ${KEYS_MEDIA}/www "['<Super>b']"
     # Launch terminal

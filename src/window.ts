@@ -452,7 +452,7 @@ export class ShellWindow {
                     this.actor_exists() &&
                     this.ext.focus_window() == this &&
                     !this.meta.is_fullscreen() &&
-                    (!this.is_single_max_screen() || this.is_snap_edge()) &&
+                    !this.is_maximized() &&
                     !this.meta.minimized
                 );
             };
@@ -500,7 +500,7 @@ export class ShellWindow {
      */
     restack(updateState: RESTACK_STATE = RESTACK_STATE.NORMAL) {
         this.update_border_layout();
-        if (this.meta.is_fullscreen() || (this.is_single_max_screen() && !this.is_snap_edge()) || this.meta.minimized) {
+        if (this.meta.is_fullscreen() || this.is_maximized() || this.meta.minimized) {
             this.hide_border();
         }
 
