@@ -2487,8 +2487,7 @@ export class Ext extends Ecs.System<ExtEvent> {
 
                             if (f.monitor === old_monitor) {
                                 f.monitor = new_monitor;
-                                f.workspace = 0;
-                                migration = [f, new_monitor, display.ws, true];
+                                migration = [f, new_monitor, display.ws, false];
                             }
                         }
 
