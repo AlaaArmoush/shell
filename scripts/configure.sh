@@ -6,7 +6,7 @@ shortcut_applied() {
     # Check if user confirmed overriding shortcuts
     if test -f "./.confirm_shortcut_change"; then
         echo "Shortcut change already confirmed"
-        return 0
+        return 1
     fi
 
     read -p "Pop shell will override your default shortcuts. Are you sure? (y/n) " CONT
