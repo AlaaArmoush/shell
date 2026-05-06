@@ -38,8 +38,8 @@ set_keybindings() {
     # Disable incompatible shortcuts
     # Restore the keyboard shortcuts: disable <Super>Escape
     dconf write ${KEYS_MUTTER_WAYLAND_RESTORE} "@as []"
-    # Hide window: disable <Super>h
-    dconf write ${KEYS_GNOME_WM}/minimize "@as ['<Super>comma']"
+    # Hide window
+    dconf write ${KEYS_GNOME_WM}/minimize "@as ['<Super>n']"
     # Toggle message tray: disable <Super>m
     dconf write ${KEYS_GNOME_SHELL}/toggle-message-tray "@as ['<Super>v']"
     # Show the activities overview: disable <Super>s
