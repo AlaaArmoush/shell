@@ -497,6 +497,19 @@ export class AutoTiler {
         const focused = ext.focus_window();
         if (!focused) return;
 
+        const center_floating = () => {
+            const area = ext.monitor_work_area(focused.meta.get_monitor());
+            const width = Math.floor(area.width * 0.6);
+            const height = Math.floor(area.height * 0.6);
+
+            focused.move(ext, {
+                x: Math.floor(area.x + (area.width - width) / 2),
+                y: Math.floor(area.y + (area.height - height) / 2),
+                width,
+                height,
+            });
+        };
+
         let wm_class = focused.meta.get_wm_class();
         let wm_title = focused.meta.get_title();
         let float_except = false;
@@ -512,6 +525,7 @@ export class AutoTiler {
                 if (fork_entity) {
                     this.detach_window(ext, focused.entity);
                 }
+                center_floating();
             } else {
                 ext.add_tag(focused.entity, Tags.ForceTile);
                 this.auto_tile(ext, focused, false);
@@ -525,6 +539,7 @@ export class AutoTiler {
                 if (fork_entity) {
                     this.detach_window(ext, focused.entity);
                     ext.add_tag(focused.entity, Tags.Floating);
+                    center_floating();
                 }
             }
         }
